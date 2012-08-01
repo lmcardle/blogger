@@ -1,8 +1,24 @@
 class Article < ActiveRecord::Base
-  attr_accessible :title, :body
+  attr_accessible :title, :body, :tag_list
   
   has_many :comments
+  has_many :taggings
+  has_many :tags, through: :taggings
   
   validates :title, presence: true
   validates :body, presence: true
+  
+  def tag_list
+    return self.tags.join(", ")
+  end
+  
+  def tag_list=(tag_string)
+    tag_names = tag_string.split(",").collect { |tag| tag.strip.downcase }
+    
+    tag_names.each do |tag_name|
+      tag = Tag.find_or_create_by_name(tag_name)
+      tagging = self.taggings.new
+      tagging.tag_id = tag.id
+    end
+  end
 end
