@@ -11,5 +11,7 @@ Blogger::Application.routes.draw do
   resources :comments
   resources :tags
   
+
+  
   root to: 'articles#index'
 end

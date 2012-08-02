@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem 'paperclip'
 gem 'devise'
+gem 'annotate'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
