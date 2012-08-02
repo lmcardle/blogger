@@ -15,8 +15,11 @@
     <%= f.text_field :tag_list %>
   </p>
   
+  <% if @article.image_file_name %>
+    <p><%= image_tag @article.image.url %></p>
+  <% end %>
   <p>
-    <%= f.label :image, "Attach an Image" %><br />
+    <%= f.label :image, "Attach a New Image" %><br />
     <%= f.file_field :image %>
   </p>
   

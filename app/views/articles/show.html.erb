@@ -1,7 +1,9 @@
 
 <h1><%= @article.title %></h1>
 <p>Tags: <%= tag_links(@article.tags) %></p>
-<p><%= image_tag @article.image.url %></p>
+<% if @article.image_file_name %>
+  <p><%= image_tag @article.image.url %></p>
+<% end %>
 <p><%= @article.body %></p>
 <h3>Comments: (<%= @article.comments.count %>)</h3>
 <%= render partial: 'comment', collection: @article.comments %>
