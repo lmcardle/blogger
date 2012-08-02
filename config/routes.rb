@@ -1,4 +1,6 @@
 Blogger::Application.routes.draw do
+  devise_for :users
+
   get "tags/index"
 
   get "tags/show"
