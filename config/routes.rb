@@ -11,7 +11,9 @@ Blogger::Application.routes.draw do
   resources :comments
   resources :tags
   
-
+  devise_scope :user do
+    get "sign_out", to: "devise/sessions#destroy"
+  end
   
   root to: 'articles#index'
 end
