@@ -8,4 +8,6 @@ Blogger::Application.routes.draw do
   resources :articles
   resources :comments
   resources :tags
+  
+  root to: 'articles#index'
 end
